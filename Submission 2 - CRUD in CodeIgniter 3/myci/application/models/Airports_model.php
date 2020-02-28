@@ -54,4 +54,17 @@ class Airports_model extends CI_Model {
     function deleteAirports($id) {
         return $this->db->delete('airports', array('id' => $id));
     }
+
+    function findAirports() {
+        $keyword = $_POST['keyword'];
+        $this->db->select('*');
+        $this->db->from('airports');
+        $this->db->like('name', $keyword);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    function getAirportsList($limit, $start) {
+        return $this->db->get('airports', $limit, $start)->result_array();
+    }
 }

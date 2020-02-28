@@ -8,8 +8,27 @@
         </button>
     </div>
   </div>
+
+  <div class="row mt-5">
+    <div class="col-lg-6">
+    <form action="<?= base_url('airports/search'); ?>" method="post">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Search Airports.." name="keyword" id="keyword" autocomplete="off">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="submit" id="tombolCari">Search</button>
+    </div>
+</div>    
+    </form>
+    </div>
+  </div>
 </div>
-<div class="container-fluid mt-5" style="overflow:auto; height:600px;">
+<div class="row mt-3">
+        <div class="col">
+            <!--Tampilkan pagination-->
+            <?php echo $pagination ?? null; ?>
+        </div>
+</div>
+<div class="container-fluid mt-3" style="overflow:auto; height:600px;">
     <table class="table table-striped">
     <thead>
         <tr>
@@ -29,7 +48,7 @@
         </tr>
     </thead>
     <tbody>
-        <?php $i = 1; foreach($airports as $row) : ?>
+        <?php $i = $this->uri->segment(3) ?? 1; foreach($airports as $row) : ?>
             <tr>
                 <td><?php echo $i; $i++; ?></td>
                 <td><?php echo $row['code']; ?></td>
@@ -51,6 +70,12 @@
         <?php endforeach; ?>
     </tbody>
     </table>
+</div>
+<div class="row mt-3">
+        <div class="col">
+            <!--Tampilkan pagination-->
+            <?php echo $pagination ?? null; ?>
+        </div>
 </div>
 
 <div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="judulModal" aria-hidden="true">
