@@ -17,8 +17,17 @@ class Airports extends CI_Controller {
         $this->load->view('templates/footer');
     }
 
-    public function add($data) {
+    public function add() {
+        $this->Airports_model->addAirports($_POST);
+        redirect(base_url('airports'));
+    }
 
+    public function update($newData) {
+
+    }
+
+    public function getUpdate($data) {
+        
     }
 
     public function delete($code) {
