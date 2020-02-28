@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman <?= $data['judul']; ?></title>
+    <title>Halaman <?= $_SESSION['judul']; ?></title>
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/bootstrap.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
                     <a class="nav-link text-light" href="<?= base_url(); ?>">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-light" href="<?= base_url(); ?>/airports">Airports</a>
+                    <a class="nav-link text-light" href="<?= base_url('airports'); ?>">Airports</a>
                 </li>
             </ul>
             </div>
