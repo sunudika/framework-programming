@@ -18,6 +18,10 @@ $(function() {
         $('#city').val('');
     });
 
+    $(document).ready(function () {
+        $(".pagination").rPage();
+    });
+
     $('.tampilModalUbah').on('click', function() {
         
         $('#formModalLabel').html('Edit Airports Data');
