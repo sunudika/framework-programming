@@ -13,6 +13,7 @@
     <table class="table table-striped">
     <thead>
         <tr>
+        <th scope="col">No</th>
         <th scope="col">Code</th>
         <th scope="col">Name</th>
         <th scope="col">cityCode</th>
@@ -28,8 +29,9 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach($airports as $row) : ?>
+        <?php $i = 1; foreach($airports as $row) : ?>
             <tr>
+                <td><?php echo $i; $i++; ?></td>
                 <td><?php echo $row['code']; ?></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['cityCode']; ?></td>
@@ -42,8 +44,8 @@
                 <td><?php echo $row['numAirports']; ?></td>
                 <td><?php echo $row['city']; ?></td>
                 <td colspan="2">
-                    <a href="" class="badge badge-info ml-4 mr-3">Edit</a>
-                    <a href="<?= base_url('airports/delete/'.$row['code']); ?>" class="badge badge-danger">Delete</a>
+                    <a href="<?= base_url('airports/update/'.$row['id']); ?>" class="badge badge-info ml-4 mr-3 tampilModalUbah" data-toggle="modal" data-target="#formModal" data-id="<?= $row['id']; ?>">Edit</a>
+                    <a href="<?= base_url('airports/delete/'.$row['id']); ?>" class="badge badge-danger" onclick="return confirm('Yakin?')">Delete</a>
                 </td>
             </tr>
         <?php endforeach; ?>

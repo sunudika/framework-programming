@@ -24,14 +24,15 @@ $(function() {
         $('.modal-footer button[type=submit]').html('Update');
         $('.modal-body form').attr('action', 'http://localhost/myci/airports/update');
 
-        const code = $(this).data('code');
+        const id = $(this).data('id');
         
         $.ajax({
             url: 'http://localhost/myci/airports/getUpdate',
-            data: {code : code},
+            data: {id : id},
             method: 'post',
             dataType: 'json',
             success: function(data) {
+                $('#id').val(data.id)
                 $('#code').val(data.code)
                 $('#name').val(data.name)
                 $('#cityCode').val(data.cityCode)

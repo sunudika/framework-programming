@@ -22,16 +22,17 @@ class Airports extends CI_Controller {
         redirect(base_url('airports'));
     }
 
-    public function update($newData) {
-
+    public function update() {
+        $this->Airports_model->updateAirports($_POST);
+        redirect(base_url('airports'));
     }
 
-    public function getUpdate($data) {
-        
+    public function getUpdate() {
+        echo json_encode($this->Airports_model->getAirportsByCode($_POST['id']));
     }
 
-    public function delete($code) {
-        $this->Airports_model->deleteAirports($code);
+    public function delete($id) {
+        $this->Airports_model->deleteAirports($id);
         redirect(base_url('airports'));
     }
 }
